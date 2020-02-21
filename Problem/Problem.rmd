@@ -1,6 +1,6 @@
 ---
 title: "T-Test Problem"
-author: "Your Name"
+author: "Sammy"
 date: "Spring, 2020"
 output: html_document
 ---
@@ -15,3 +15,24 @@ Ourdata <- read.csv(file="GSScsv.csv")
 
 ## Is there a difference in  average years of education (EDUC) between the those who did or did not vote in 2012 (VOTE12)?
 
+###Plot boxplots
+
+```{r}
+plot(EDUC~VOTE12,data=Ourdata)
+```
+  
+  the people that didn't vote looks like they had a 5th grade education and the people that voted, it looks as if they had a 9th grade education.
+  
+  # Numerical results
+
+```{r}
+favstats(EDUC~VOTE12,data=Ourdata)
+```
+
+# Inferential  
+  
+```{r}
+t.test(EDUC~VOTE12,data=Ourdata)
+```
+
+  The null hypothsis states there is no difference between the education of those who voted and those who didn't. The p value was a low number so I will reject the null hypothsis. 
